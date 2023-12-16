@@ -1,0 +1,34 @@
+### get public
+GET http://127.0.0.1:8000/api/public
+Accept: application/json
+
+
+### add post
+< {%
+client.log(client.global.get('access_token'));
+%}
+POST http://127.0.0.1:8000/api/posts/
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+{"title": "string","text": "string","author": "string"}
+
+### read posts
+GET http://127.0.0.1:8000/api/posts/
+Content-Type: application/json
+
+### read post
+GET http://127.0.0.1:8000/api/posts/1
+Content-Type: application/json
+
+### update post
+PUT http://127.0.0.1:8000/api/posts/1
+Content-Type: application/json
+Authorization: Bearer {{access_token}}
+
+{"title": "string2","text": "string2","author": "string2"}
+
+### Delete post
+DELETE http://127.0.0.1:8000/api/posts/7
+Content-Type: application/json
+Authorization: Bearer {{access_token}}
